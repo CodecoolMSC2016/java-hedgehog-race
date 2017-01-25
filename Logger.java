@@ -2,7 +2,9 @@
 
 public class Logger
 {
-	public log(String type, String message) // it writes to the console in a formatted way
+// it writes to the console in a formatted way
+	public log(String type, String message)
+
 	{
 	}
 }
