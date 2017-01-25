@@ -7,8 +7,29 @@ public class Simulation
 	
 
 	public void generateData()
-	{
+	{	
 		
+		File file = new File("winnerHorses.csv");
+		if(file.exists())
+		{
+			Writer pw = new FileWriter(file, true);
+			StringBuilder sb = new StringBuilder();
+			sb.append();
+			
+			pw.write(sb.toString());
+			pw.close();
+			System.out.println("done!");
+		}
+		else
+		{
+			PrintWriter pw = new PrintWriter(new File(file));
+			StringBuilder sb = new StringBuilder();
+			sb.append("id");
+			
+			pw.write(sb.toString());
+			pw.close();
+			System.out.println("done!");
+	    	}
 	}
 	
 	public void load()
