@@ -4,7 +4,24 @@
 
 public class Simulation
 {
+	public String decideWinner()
+	{
+		String result;
+		Random num = new Random();
+
+		Horse[] horses = new Horse[5];	
+		horses[0] = new Horse("Kincsem");
+		horses[1] = new Horse("Csikócsőr");
+		horses[2] = new Horse("Túladagolás");
+		horses[3] = new Horse("Herbál");
+		horses[4] = new Horse("Szmoki");
 	
+		int index = num.nextInt(horses.length);
+
+		result = new Result(horses[index].getName());
+	
+		return result;
+	}
 
 	public void generateData()
 	{	
@@ -14,25 +31,23 @@ public class Simulation
 		{
 			Writer pw = new FileWriter(file, true);
 			StringBuilder sb = new StringBuilder();
-			sb.append();
+			sb.append(decideWinner());
 			
 			pw.write(sb.toString());
 			pw.close();
-			System.out.println("done!");
 		}
 		else
 		{
 			PrintWriter pw = new PrintWriter(new File(file));
 			StringBuilder sb = new StringBuilder();
-			sb.append("id");
+			sb.append(decideWinner());
 			
 			pw.write(sb.toString());
 			pw.close();
-			System.out.println("done!");
 	    	}
 	}
 	
-	public void load()
+	/*public void load()
 	{
 		
 	
@@ -54,6 +69,6 @@ public class Simulation
 		{
 			e.printStackTrace();
 		}
-	}
+	}*/
 }
 

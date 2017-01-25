@@ -5,7 +5,7 @@ public class Main
 	}
 	
 
-	public generateSimulation(int round)
+	public void generateSimulation(int round)
 	{	
 		// returns a Simulation instance that contains the simulation result
 

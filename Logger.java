@@ -3,7 +3,7 @@
 public class Logger
 {
 // it writes to the console in a formatted way
-	public log(String type, String message)
+	public void log(String type, String message)
 
 	{
 	}
