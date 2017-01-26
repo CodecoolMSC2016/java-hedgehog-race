@@ -30,30 +30,46 @@ public class Simulation
 		return horses;
 	}
 
-	public void generateData() throws Exception
+	public static ArrayList<String> getHorseNamesAsStringArray()
+	{
+		ArrayList<String> names = new ArrayList<>();
+		for(Horse i: getHorses())
+			{
+				names.add(i.getName());
+			}
+		return names;
+	}
+
+	public void generateData()
 	{	
-		
-		File file = new File("winnerHorses.csv");
-		if(file.exists())
+		try
 		{
-			Writer pw = new FileWriter(file, true);
-			StringBuilder sb = new StringBuilder();
-			sb.append(decideWinner());
-			sb.append('\n');
+			File file = new File("winnerHorses.csv");
+			if(file.exists())
+			{
+				Writer pw = new FileWriter(file, true);
+				StringBuilder sb = new StringBuilder();
+				sb.append(decideWinner());
+				sb.append('\n');
 			
-			pw.write(sb.toString());
-			pw.close();
+				pw.write(sb.toString());
+				pw.close();
+			}
+			else
+			{
+				Writer pw = new FileWriter(new File("winnerHorses.csv"));
+				StringBuilder sb = new StringBuilder();
+				sb.append(decideWinner());
+				sb.append('\n');
+			
+				pw.write(sb.toString());
+				pw.close();
+		    	}
 		}
-		else
+		catch (Exception e)
 		{
-			Writer pw = new FileWriter(new File("winnerHorses.csv"));
-			StringBuilder sb = new StringBuilder();
-			sb.append(decideWinner());
-			sb.append('\n');
 			
-			pw.write(sb.toString());
-			pw.close();
-	    	}
+		}
 	}
 	
 	public static List<String> load() throws Exception
@@ -68,6 +84,7 @@ public class Simulation
 	    		lines.add(line);
 	 	}       
 	      	return lines;
+		
 	}
 }
 
