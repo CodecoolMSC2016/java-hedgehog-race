@@ -1,8 +1,9 @@
-// It writes information to the console. Only this class can contain calls to System.out.println().
+import java.util.*;
 
 public class Logger
 {
 	String message;
+	
 
 	public Logger(String message)
 	{
@@ -14,14 +15,51 @@ public class Logger
 		return this.message;
 	}
 
-	public void log(String message)
+	public static void log(String message)
 	{
+		Player p = new Player();				
 		if (message.equals("welcome"))
 		{
-		System.out.println("Welcome to our Horse Race!");
+			System.out.println("Welcome to our Horse Race!");
 		}
-		
+		else if (message.equals("startMoney"))
+		{
+			System.out.println("You have: " + p.getMoney());
+		}
+		else if (message.equals("money"))
+		{
+			System.out.println("You have now: " + p.getMoney());
+		}
+		else if (message.equals("bet"))
+		{
+			System.out.println("How much do you bet? ");
+		}
+		else if (message.equals("horse"))
+		{
+			System.out.println("The horses are: ");
+			for(Horse horse : Simulation.getHorses())
+			{
+				System.out.println(horse.getName());
+			}
+		}
 	}
-}
+	
+	
+	public void log(int bet)
+	{
+		System.out.println("Your bet is: " + bet);
+	}
 
-// The TimeStamp can be hardcoded to today's date, otherwise try and use java.util.Date (this is optional). 
+	public void printError(String message)
+	{
+		if (message.equals("lessMoney"))
+		{
+		System.out.println("Too much bet. You haven't got enough money.");
+		}
+		else if (message.equals("noHorse"))
+		{
+		System.out.println("We haven't got any horse with this name.");
+		}
+	}
+	
+}
