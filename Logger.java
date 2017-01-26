@@ -2,10 +2,25 @@
 
 public class Logger
 {
-// it writes to the console in a formatted way
-	public void log(String type, String message)
+	String message;
 
+	public Logger(String message)
 	{
+		this.message = message;
+	}
+	
+	public String getMessage()
+	{
+		return this.message;
+	}
+
+	public void log(String message)
+	{
+		if (message.equals("welcome"))
+		{
+		System.out.println("Welcome to our Horse Race!");
+		}
+		
 	}
 }
 
