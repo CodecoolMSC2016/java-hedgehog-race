@@ -30,6 +30,16 @@ public class Simulation
 		return horses;
 	}
 
+	public static ArrayList<String> getHorseNamesAsStringArray()
+	{
+		ArrayList<String> names = new ArrayList<>();
+		for(Horse i: getHorses())
+			{
+				names.add(i.getName());
+			}
+		return names;
+	}
+
 	public void generateData()
 	{	
 		try
