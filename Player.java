@@ -36,6 +36,7 @@ public class Player
             betIn = new Scanner(System.in);
         }
         betOption.log(betIn.nextInt());
+        money -= betIn.nextInt();
         return betIn.nextInt();
     }
 
