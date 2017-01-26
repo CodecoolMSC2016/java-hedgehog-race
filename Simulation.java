@@ -4,23 +4,30 @@ import java.util.*;
 public class Simulation
 {	
 	String result;
-
+	
 	public String decideWinner()
 	{
 		Random num = new Random();
 
-		Horse[] horses = new Horse[5];	
-		horses[0] = new Horse("Kincsem");
-		horses[1] = new Horse("Csikócsőr");
-		horses[2] = new Horse("Túladagolás");
-		horses[3] = new Horse("Herbál");
-		horses[4] = new Horse("Szmoki");
+		Horse[] horses = Simulation.getHorses();
 	
 		int index = num.nextInt(horses.length);
 
 		result = horses[index].getName();
 	
 		return result;
+	}
+
+	public static Horse[] getHorses()
+	{
+		Horse[] horses = new Horse[5];	
+		horses[0] = new Horse("Kincsem");
+		horses[1] = new Horse("Csikócsőr");
+		horses[2] = new Horse("Túladagolás");
+		horses[3] = new Horse("Herbál");
+		horses[4] = new Horse("Szmoki");
+
+		return horses;
 	}
 
 	public void generateData() throws Exception
@@ -49,7 +56,7 @@ public class Simulation
 	    	}
 	}
 	
-	public void load() throws Exception
+	public static List<String> load() throws Exception
 	{
 	  	
 	 	File file = new File("winnerHorses.csv");
@@ -60,7 +67,7 @@ public class Simulation
 		{
 	    		lines.add(line);
 	 	}       
-	      	
+	      	return lines;
 	}
 }
 

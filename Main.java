@@ -5,12 +5,12 @@ public class Main
 	public static List<Simulation> sims = new ArrayList<Simulation>();
 	public static void main(String[] args)throws Exception
 	{
-	 
-	generateSimulation(50);
-	for(Simulation i: sims)
-	{
-		System.out.println(i.result);
-	}
+		HashMap<String, Integer> map = new HashMap<String, Integer>();
+		map = Horse.horseFrequency();
+		for(String i: map.keySet())
+		{
+			System.out.println(i + map.get(i));
+		}	
 	
 	}
 	
