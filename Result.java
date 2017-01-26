@@ -3,10 +3,12 @@ import java.util.*;
 public class Result
 {
 	private String name;
+	private List<String> bestbet;
 
-	public Result(String name)
+	public Result(String name, List<String> bestbet)
 	{
 		this.name = name;
+		this.bestbet = bestbet;
 	}
 	
 	public String getName()

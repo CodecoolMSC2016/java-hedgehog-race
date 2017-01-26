@@ -10,8 +10,11 @@ public class Main {
 		
 		try
 		{
-			
-
+		generateSimulation(10000);
+		Simulator sim = new Simulator(new Simulation(), new Logger());
+		Result res = sim.run();
+		System.exit(1);
+	// playing block
 		Logger.log("welcome");
 		Logger.log("startMoney");
 	// innentől while ciklus(amíg a player money-ja nem 0)
@@ -22,7 +25,7 @@ public class Main {
 		Logger.log("bet");
 		player.betMoney();
 		Logger.log("money");
-	// lefut a futam - Simulator run()
+	// lefut a futam - nem run()
 	// megvan a nyerő paci
 	// ki kell számolni a játékos pénzét, (money + bet*paci_szorzó) vagy (money-bet)
 	// ha elfogyott a pénze, while ciklus vége és kiírja hogy vége vagy valami...

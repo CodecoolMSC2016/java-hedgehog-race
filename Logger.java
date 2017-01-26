@@ -4,7 +4,10 @@ public class Logger
 {
 	String message;
 	
+	public Logger()
+	{
 
+	}
 	public Logger(String message)
 	{
 		this.message = message;
@@ -46,12 +49,18 @@ public class Logger
 		{
 			System.out.println("Choose a horse you want to bet: ");
 		}
+
 	}
 	
 	
 	public void log(int bet)
 	{
 		System.out.println("Your bet is: " + bet);
+	}
+	public void log(String type, String message)
+	{
+		String timestamp = "2017.01.27.";
+		System.out.println(timestamp + " "+ type + " "+ message);
 	}
 
 	public void printError(String message)
