@@ -1,6 +1,8 @@
+import java.util.ArrayList;
 import java.util.Scanner;
 
-public class Player {
+public class Player
+{
     private int money;
     private String name;
 
@@ -26,9 +28,32 @@ public class Player {
         this.money = money;
     }
 
-    public void bet()
-    {
-        // logger.log("bet", 1000);
+    public int betMoney() {
+        Logger betOption = new Logger("bet");
+        betOption.log(betOption.getMessage());
+        Scanner betIn = new Scanner(System.in);
+        while (betIn.nextInt() > money) {
+            betOption.printError("lessMoney");
+            betIn = new Scanner(System.in);
+        }
+        betOption.log(betIn.nextInt());
+        return betIn.nextInt();
     }
 
+    public String betName() {
+        Logger betOption = new Logger("bet");
+        betOption.log(betOption.getMessage());
+        Scanner betIn = new Scanner(System.in);
+        String horseName = betIn.next();
+        ArrayList<String> names = Simulation.getHorseNamesAsStringArray();
+        while(!names.contains(horseName))
+        {
+            betOption.printError("noHorse");
+            betOption.log(betOption.getMessage());
+            betIn = new Scanner(System.in);
+            horseName = betIn.next();
+        }
+        return horseName;
+
+    }
 }
