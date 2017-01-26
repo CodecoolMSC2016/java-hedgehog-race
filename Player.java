@@ -30,7 +30,6 @@ public class Player
 
     public int betMoney() {
         Logger betOption = new Logger("bet");
-        betOption.log(betOption.getMessage());
         Scanner betIn = new Scanner(System.in);
         while (betIn.nextInt() > money) {
             betOption.printError("lessMoney");
@@ -41,7 +40,7 @@ public class Player
     }
 
     public String betName() {
-        Logger betOption = new Logger("bet");
+        Logger betOption = new Logger("bethorse");
         betOption.log(betOption.getMessage());
         Scanner betIn = new Scanner(System.in);
         String horseName = betIn.next();
