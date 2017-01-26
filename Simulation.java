@@ -49,28 +49,18 @@ public class Simulation
 	    	}
 	}
 	
-	/*public void load()
+	public void load() throws Exception
 	{
-		
-	
-		try (BufferedReader br = new BufferedReader(new FileReader(csvFile)))
+	  	
+	 	File file = new File("winnerHorses.csv");
+		BufferedReader reader = new BufferedReader(new FileReader("winnerHorses.csv"));
+		List<String> lines = new ArrayList<String>();
+		String line = null;
+		while ((line = reader.readLine()) != null)
 		{
-
-			while ((line = br.readLine()) != null)
-			{
-
-		        // use comma as separator
-		        String[] winnerHorses = line.split(cvsSplitBy);
-
-		        System.out.println("horses....");
-
-			}
-
-		}
-		catch (IOException e)
-		{
-			e.printStackTrace();
-		}
-	}*/
+	    		lines.add(line);
+	 	}       
+	      	
+	}
 }
 
