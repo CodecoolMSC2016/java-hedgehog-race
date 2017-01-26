@@ -3,30 +3,45 @@ import java.util.*;
 public class Main
 {	static int round;
 	public static List<Simulation> sims = new ArrayList<Simulation>();
-	public static void main(String[] args)throws Exception
+
+	public static void main(String[] args)
 	{	
-		Scanner inp = new Scanner(System.in);
-		int inputNum = Integer.parseInt(inp.nextLine());
-		round = inputNum;
-		generateSimulation(round);
-		HashMap<String, Integer> map = new HashMap<String, Integer>();
-		map = Horse.horseFrequency();
-		for(String i: map.keySet())
+		try
 		{
-			System.out.println(i +" "+ map.get(i));
+			Scanner inp = new Scanner(System.in);
+			int inputNum = Integer.parseInt(inp.nextLine());
+			round = inputNum;
+			generateSimulation(round);
+			HashMap<String, Integer> map = new HashMap<String, Integer>();
+			map = Horse.horseFrequency();
+			for(String i: map.keySet())
+			{
+				System.out.println(i +" "+ map.get(i));
+			}
+		}
+		catch (Exception e)
+		{
+			System.out.println("Wrong input");
 		}	
 	
 	}
 	
 
-	public static void generateSimulation(int round) throws Exception
+	public static void generateSimulation(int round) 
 		{
-		//  Not returns a Simulation instance that contains the simulation result
-		for(int i = 1; i<= round; i++)
+		try
+		{				
+			//  Not returns a Simulation instance that contains the simulation result
+			for(int i = 1; i<= round; i++)
+			{
+				Simulation sim = new Simulation();
+				sim.generateData();
+				sims.add(sim); 
+			}
+		}
+		catch (Exception e)
 		{
-			Simulation sim = new Simulation();
-			sim.generateData();
-			sims.add(sim); 
+			throw e;
 		}
 	}
 
