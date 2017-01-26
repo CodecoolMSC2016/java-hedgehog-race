@@ -18,6 +18,26 @@ public class Simulation
 		return result;
 	}
 
+	public static String decideWinnerWeighted(Map<String, Double> sortedMap)
+	{
+
+		Random gen = new Random();
+		String[] nameArr = new String[5];
+		int winnerIndex = gen.nextInt(100);
+		int i = 0;
+		for(String name: sortedMap.keySet()) {
+			nameArr[i] = name;
+			i+= 1;
+
+		}
+		if(winnerIndex <= 30) return nameArr[0];
+		else if(winnerIndex > 30 && winnerIndex <= 55) return nameArr[1];
+		else if(winnerIndex > 55 && winnerIndex <= 75) return nameArr[2];
+		else if(winnerIndex > 75 && winnerIndex <= 90) return nameArr[3];
+		else if(winnerIndex > 90 && winnerIndex <= 100)return nameArr[4];
+		else return null;
+	}
+
 	public static Horse[] getHorses()
 	{
 		Horse[] horses = new Horse[5];	
@@ -44,7 +64,7 @@ public class Simulation
 	{	
 		try
 		{
-			File file = new File("winnerHorses.csv");
+			File file = new File("./winnerHorses.csv");
 			if(file.exists())
 			{
 				Writer pw = new FileWriter(file, true);

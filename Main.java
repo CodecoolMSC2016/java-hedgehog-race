@@ -13,22 +13,27 @@ public class Main {
 		generateSimulation(10000);
 		Simulator sim = new Simulator(new Simulation(), new Logger());
 		Result res = sim.run();
-		System.exit(1);
-	// playing block
+		HashMap<String, Double> winPercentMap = res.getAllWinPercentsForGame();
+		Map<String, Double> winPercentSortedMap = res.getPercentagesForHorses(winPercentMap);
+		Map<String, Double> oddsMap = res.getOddsForHorses(winPercentSortedMap);
+		Logger log = new Logger();
+		log.log("Winner of the Round is: ", (Simulation.decideWinnerWeighted(winPercentSortedMap)));
+
+
 		Logger.log("welcome");
-		Logger.log("startMoney");
-	// innentől while ciklus(amíg a player money-ja nem 0)
-	
-		Logger.log("horse");
-		player.betName();
-	
-		Logger.log("bet");
-		player.betMoney();
-		Logger.log("money");
-	// lefut a futam - nem run()
-	// megvan a nyerő paci
-	// ki kell számolni a játékos pénzét, (money + bet*paci_szorzó) vagy (money-bet)
-	// ha elfogyott a pénze, while ciklus vége és kiírja hogy vége vagy valami...
+	    while(player.getMoney() > 0)
+        {
+			Logger.log("startMoney");
+            Logger.log("horse");
+            String betName = player.betName();
+
+            Logger.log("bet");
+            int bet = player.betMoney();
+            Logger.log("money");
+            String winner = (Simulation.decideWinnerWeighted(winPercentSortedMap));
+            log.log("Winner of the Round is: ", winner);
+            res.decideBetResult(player, oddsMap, betName, bet, winner);
+        }
 		Logger.log("end");
 
 		
@@ -48,8 +53,7 @@ public class Main {
 	public static void generateSimulation(int round) 
 		{
 		try
-		{				
-			//  Not returns a Simulation instance that contains the simulation result
+		{
 			for(int i = 1; i<= round; i++)
 			{
 				Simulation sim = new Simulation();

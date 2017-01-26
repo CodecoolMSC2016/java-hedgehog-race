@@ -12,6 +12,7 @@ public class Horse
 	{
 		return name;
 	}
+
 	public static HashMap<String, Integer> horseFrequency() throws Exception
 	{
 		HashMap<String, Integer> horseMap = new HashMap<String, Integer>();

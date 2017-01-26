@@ -58,4 +58,8 @@ public class Player
         return horseName;
 
     }
+    public void betWon(int bet, Double odd)
+    {
+        money += bet*odd;
+    }
 }
