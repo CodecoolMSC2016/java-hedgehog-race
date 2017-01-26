@@ -31,13 +31,15 @@ public class Player
     public int betMoney() {
         Logger betOption = new Logger("bet");
         Scanner betIn = new Scanner(System.in);
-        while (betIn.nextInt() > money) {
+	int betAmount = betIn.nextInt();
+        while (betAmount > money) {
             betOption.printError("lessMoney");
             betIn = new Scanner(System.in);
+	    betAmount = betIn.nextInt();
         }
-        betOption.log(betIn.nextInt());
-        money -= betIn.nextInt();
-        return betIn.nextInt();
+        betOption.log(betAmount);
+        money -= betAmount;
+        return betAmount;
     }
 
     public String betName() {

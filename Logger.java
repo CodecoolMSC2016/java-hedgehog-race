@@ -17,7 +17,7 @@ public class Logger
 
 	public static void log(String message)
 	{
-		Player p = new Player();				
+		Player p = Main.player;				
 		if (message.equals("welcome"))
 		{
 			System.out.println("Welcome to our Horse Race!");
@@ -41,6 +41,10 @@ public class Logger
 			{
 				System.out.println(horse.getName());
 			}
+		}
+		else if (message.equals("bethorse"))
+		{
+			System.out.println("Choose a horse you want to bet: ");
 		}
 	}
 	
